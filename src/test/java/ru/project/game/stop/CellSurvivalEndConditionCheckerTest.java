@@ -1,10 +1,12 @@
-package ru.project.game;
+package ru.project.game.stop;
 
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.project.board.Board;
+import ru.project.board.validation.BoardValidationException;
+import ru.project.game.stop.CellSurvivalEndConditionChecker;
 import ru.project.utils.ArrayConvertor;
 
 import java.util.Arrays;
@@ -19,13 +21,13 @@ class CellSurvivalEndConditionCheckerTest {
     }
 
     @Test
-    void isGameOver() {
+    void isGameOver() throws BoardValidationException {
         @AllArgsConstructor
         class Testcase{
             String name;
             boolean[][] in;
             boolean out;
-            public void run(){
+            public void run() throws BoardValidationException {
                 Assertions.assertEquals(gameOverChecker.isGameOver(new Board(in)), out, name);
             }
         }

@@ -1,7 +1,6 @@
-package ru.project.game;
+package ru.project.game.stop;
 
 import ru.project.board.Board;
-import ru.project.game.GameOverConditionChecker;
 
 public class CellSurvivalEndConditionChecker implements GameOverConditionChecker {
     @Override

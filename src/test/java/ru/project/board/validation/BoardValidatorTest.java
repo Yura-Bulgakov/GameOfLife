@@ -1,9 +1,11 @@
-package ru.project.board;
+package ru.project.board.validation;
 
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import ru.project.board.validation.BoardValidationException;
+import ru.project.board.validation.BoardValidator;
 
 
 import java.util.Arrays;

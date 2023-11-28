@@ -1,4 +1,7 @@
-package ru.project.board;
+package ru.project.board.factory;
+
+import ru.project.board.Board;
+import ru.project.board.validation.BoardValidationException;
 
 import java.util.Random;
 
@@ -10,11 +13,11 @@ public class RandomBoardFactory extends AbstractBoardFactory{
     }
 
     @Override
-    public Board createBoard()  {
-        boolean[][] board = new boolean[this.row][this.col];
+    public Board createBoard() throws BoardValidationException {
+        boolean[][] board = new boolean[this.rows][this.cols];
         Random random = new Random();
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
                 board[i][j] = random.nextBoolean();
             }
         }

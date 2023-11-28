@@ -1,4 +1,4 @@
-package ru.project.ui;
+package ru.project.ui.menu;
 
 import lombok.AllArgsConstructor;
 
@@ -13,4 +13,5 @@ public enum SettingsMenu implements Menuable{
     public String getDescription() {
         return this.description;
     }
+
 }

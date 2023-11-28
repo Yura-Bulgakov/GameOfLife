@@ -1,34 +1,18 @@
 package ru.project.board;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
+import ru.project.board.validation.BoardValidationException;
+import ru.project.board.validation.BoardValidator;
 
-import java.util.Arrays;
 
 @Getter
-@Slf4j
+@EqualsAndHashCode
 public class Board {
     private final boolean[][] board;
 
-    public Board(boolean[][] board) {
-        try {
-            BoardValidator.validateBoard(board);
-        } catch (BoardValidationException e) {
-            log.error(e.getMessage());
-        }
+    public Board(boolean[][] board) throws BoardValidationException {
+        BoardValidator.validateBoard(board);
         this.board = board;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Board board1 = (Board) o;
-        return Arrays.deepEquals(board, board1.board);
-    }
-
-    @Override
-    public int hashCode() {
-        return Arrays.deepHashCode(board);
     }
 }

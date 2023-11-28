@@ -1,4 +1,4 @@
-package ru.project.game;
+package ru.project.game.stop;
 
 import ru.project.board.Board;
 

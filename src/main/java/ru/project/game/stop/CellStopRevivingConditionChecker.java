@@ -1,4 +1,4 @@
-package ru.project.game;
+package ru.project.game.stop;
 
 import lombok.AllArgsConstructor;
 import ru.project.board.Board;
@@ -10,7 +10,9 @@ public class CellStopRevivingConditionChecker implements GameOverConditionChecke
 
     @Override
     public boolean isGameOver(Board board) {
-        return isStopReviving(board);
+        boolean isOver = isStopReviving(board);
+        this.oldBoard = board;
+        return isOver;
     }
 
     private boolean isStopReviving(Board board){

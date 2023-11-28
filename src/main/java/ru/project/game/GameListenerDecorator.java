@@ -2,7 +2,7 @@ package ru.project.game;
 
 import ru.project.board.Board;
 import ru.project.ui.ConsoleUserListener;
-import ru.project.ui.Menuable;
+import ru.project.ui.menu.Menuable;
 import ru.project.ui.UserListener;
 
 import java.util.Arrays;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class GameListenerDecorator implements UserListenerDecorator {
     private final UserListener userListener;
 
-    public GameListenerDecorator(UserListener userListener) {
+    public GameListenerDecorator() {
         this.userListener = new ConsoleUserListener();
     }
 
@@ -37,15 +37,14 @@ public class GameListenerDecorator implements UserListenerDecorator {
     @Override
     public <T extends Enum<T> & Menuable> T pickMenuItem(String prompt, Class<T> menuItems) {
         T[] menuElements = menuItems.getEnumConstants();
-        showMessage(prompt);
-        for (int i = 0; i < menuElements.length; i++) {
-            showMessage((i + 1) + ". " + menuElements[i].getDescription());
-        }
-        int choice;
-        do {
-            choice = getInt("Выберите пункт меню:");
-        } while (choice < 1 || choice > menuElements.length);
-
-        return menuElements[choice - 1];
+        String[] menuDescriptions = Arrays.stream(menuElements)
+                .map(Menuable::getDescription)
+                .toArray(String[]::new);
+        String choice = pickMenuItem(prompt, menuDescriptions);
+        T selectedItem = Arrays.stream(menuElements)
+                .filter(item -> item.getDescription().equals(choice))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Неизвестная ошибка, не удалось определить пункт меню: " + choice));
+        return selectedItem;
     }
 }

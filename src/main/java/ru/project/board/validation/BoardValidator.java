@@ -1,6 +1,4 @@
-package ru.project.board;
-
-import ru.project.automaton.AutomationException;
+package ru.project.board.validation;
 
 public class BoardValidator {
     public static void validateBoard(boolean[][] board) throws  BoardValidationException {
@@ -18,7 +16,8 @@ public class BoardValidator {
             }
 
             if (board[i].length != cols) {
-                throw new BoardValidationException("Input board has inconsistent number of columns at row " + i);
+                throw new BoardValidationException("Input board has inconsistent number of columns " + board[i].length
+                        + "at row " + i + ". Expected number of columns at row " + cols);
             }
         }
     }
