@@ -1,14 +1,14 @@
-package ru.game;
+package ru.project.game;
 
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.project.board.Board;
+import ru.project.utils.ArrayConvertor;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CellSurvivalEndConditionCheckerTest {
     private CellSurvivalEndConditionChecker gameOverChecker;
@@ -26,7 +26,7 @@ class CellSurvivalEndConditionCheckerTest {
             boolean[][] in;
             boolean out;
             public void run(){
-                Assertions.assertEquals(gameOverChecker.isGameOver(in), out, name);
+                Assertions.assertEquals(gameOverChecker.isGameOver(new Board(in)), out, name);
             }
         }
         List<Testcase> testcases = Arrays.asList(

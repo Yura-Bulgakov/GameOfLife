@@ -1,9 +1,12 @@
-package ru.game;
+package ru.project.game;
+
+import ru.project.board.Board;
+import ru.project.game.GameOverConditionChecker;
 
 public class CellSurvivalEndConditionChecker implements GameOverConditionChecker {
     @Override
-    public boolean isGameOver(boolean[][] board) {
-        return !hasLiveCells(board);
+    public boolean isGameOver(Board board) {
+        return !hasLiveCells(board.getBoard());
     }
 
     private boolean hasLiveCells(boolean[][] board) {

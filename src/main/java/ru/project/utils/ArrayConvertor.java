@@ -1,4 +1,4 @@
-package ru.game;
+package ru.project.utils;
 
 public class ArrayConvertor {
     public static boolean[][] convertStringToArray(String input) {

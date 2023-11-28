@@ -1,8 +1,10 @@
-package ru.game;
+package ru.project.automaton;
 
-public class GameOfLife implements CellularAutomaton{
+import ru.project.board.Board;
+
+public class GameOfLife implements CellularAutomaton {
     @Override
-    public boolean[][] makeMove(boolean[][] board) throws AutomationException {
+    public Board makeMove(boolean[][] board) throws AutomationException {
         int rows = board.length;
         int cols = board[0].length;
         boolean[][] newBoard = new boolean[rows][cols];
@@ -18,7 +20,7 @@ public class GameOfLife implements CellularAutomaton{
                 }
             }
         }
-        return newBoard;
+        return new Board(newBoard);
     }
 
     private static int countLiveNeighbors(boolean[][] board, int row, int col) {

@@ -1,10 +1,11 @@
-package ru.game;
+package ru.project.automaton;
 
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import ru.project.utils.ArrayConvertor;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +41,7 @@ class GameOfLifeTest {
                         }
                     });
                 }else {
-                    boolean[][] resultBoard = gameOfLife.makeMove(inBoard);
+                    boolean[][] resultBoard = gameOfLife.makeMove(inBoard).getBoard();
                     Assertions.assertArrayEquals(outBoard, resultBoard, name);
                 }
             }
