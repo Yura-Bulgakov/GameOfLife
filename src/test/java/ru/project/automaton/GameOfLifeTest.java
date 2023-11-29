@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+import ru.project.board.Board;
 import ru.project.utils.ArrayConvertor;
 
 import java.util.Arrays;
@@ -37,11 +38,11 @@ class GameOfLifeTest {
                     Assertions.assertThrows(this.exception.getClass(), new Executable() {
                         @Override
                         public void execute() throws Throwable {
-                            gameOfLife.makeMove(inBoard);
+                            gameOfLife.makeMove(new Board(inBoard));
                         }
                     });
                 }else {
-                    boolean[][] resultBoard = gameOfLife.makeMove(inBoard).getBoard();
+                    boolean[][] resultBoard = gameOfLife.makeMove(new Board(inBoard)).getBoard();
                     Assertions.assertArrayEquals(outBoard, resultBoard, name);
                 }
             }

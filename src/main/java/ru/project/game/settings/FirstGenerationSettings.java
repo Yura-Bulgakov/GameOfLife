@@ -8,11 +8,13 @@ import ru.project.board.Coordinate;
 @Getter
 public class FirstGenerationSettings {
     private boolean random;
+    private int cellAmount;
     private Coordinate[] coordinates;
 
     public static FirstGenerationSettings getDefaultFirstGenerationSettings(){
         FirstGenerationSettings settings = new FirstGenerationSettings();
         settings.setRandom(true);
+        settings.setCellAmount(-1);
         return settings;
     }
 }
