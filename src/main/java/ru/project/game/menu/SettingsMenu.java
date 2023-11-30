@@ -1,4 +1,4 @@
-package ru.project.ui.menu;
+package ru.project.game.menu;
 
 import lombok.AllArgsConstructor;
 
@@ -6,8 +6,11 @@ import lombok.AllArgsConstructor;
 public enum SettingsMenu implements Menuable{
     SET_FIELD_SIZE("Задать размер поля"),
     SET_INITIAL_POPULATION("Задать начальную популяцию"),
-    BACK("Назад");
+    SET_DELAY("Задать задержку вывода"),
+    BACK("Назад"),
+    ;
 
+    public final static String menuDescription = "Меню настроек";
     private final String description;
     @Override
     public String getDescription() {

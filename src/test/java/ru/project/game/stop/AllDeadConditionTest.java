@@ -6,18 +6,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.project.board.Board;
 import ru.project.board.validation.BoardValidationException;
-import ru.project.game.stop.CellSurvivalEndConditionChecker;
 import ru.project.utils.ArrayConvertor;
 
 import java.util.Arrays;
 import java.util.List;
 
-class CellSurvivalEndConditionCheckerTest {
-    private CellSurvivalEndConditionChecker gameOverChecker;
+class AllDeadConditionTest {
+    private AllDeadCondition gameOverChecker;
 
     @BeforeEach
     void setUp() {
-        gameOverChecker = new CellSurvivalEndConditionChecker();
+        gameOverChecker = new AllDeadCondition();
     }
 
     @Test

@@ -3,9 +3,8 @@ package ru.project.game.stop;
 import lombok.AllArgsConstructor;
 import ru.project.board.Board;
 
-@AllArgsConstructor
-public class CellStopRevivingConditionChecker implements GameOverConditionChecker{
 
+public class StuckCondition implements GameOverCondition {
     private Board oldBoard;
 
     @Override

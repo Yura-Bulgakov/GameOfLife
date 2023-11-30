@@ -1,17 +1,17 @@
-package ru.project.ui.menu;
+package ru.project.game.menu;
 
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum MainMenu implements Menuable{
     START_GAME("Запустить игру"),
-    GET_SETTINGS("Посмотреть настройки"),
+    SHOW_SETTINGS("Посмотреть настройки"),
     SET_SETTINGS("Задать настройки"),
-
-    EXIT("Выйти");
+    EXIT("Выйти"),
+    ;
 
     private final String description;
-    public final static String menuDescription = "";
+    public final static String menuDescription = "Главное меню";
     @Override
     public String getDescription() {
         return this.description;

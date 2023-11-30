@@ -1,4 +1,4 @@
-package ru.project.ui.menu;
+package ru.project.game.menu;
 
 public interface Menuable {
     String getDescription();

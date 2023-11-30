@@ -1,23 +1,23 @@
 package ru.project.board;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 @Setter
+@ToString
 public class Coordinate {
+
    private int row;
    private int col;
 
-   @Override
-   public String toString() {
-      return "Coordinate{" +
-              "row=" + row +
-              ", col=" + col +
-              '}';
+   public Coordinate(int row, int col) {
+      if (row < 0 || col < 0){
+         throw new IllegalArgumentException("Координаты не могут быть отрицательными!");
+      }
+      this.row = row;
+      this.col = col;
+   }
+
+   private Coordinate() {
    }
 }

@@ -7,9 +7,6 @@ import java.util.Random;
 
 
 public class RandomBoardFactory extends AbstractBoardFactory{
-
-
-
     private int cellCount;
 
     public RandomBoardFactory(int row, int col, int count) throws BoardFactoryException {
@@ -23,7 +20,7 @@ public class RandomBoardFactory extends AbstractBoardFactory{
     }
 
     public void setCellCount(int cellCount) throws BoardFactoryException {
-        checkCount(cellCount);
+//        checkCount(cellCount);
         this.cellCount = cellCount;
     }
 

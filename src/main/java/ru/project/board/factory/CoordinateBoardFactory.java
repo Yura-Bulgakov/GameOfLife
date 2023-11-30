@@ -9,21 +9,20 @@ public class CoordinateBoardFactory extends AbstractBoardFactory{
 
     public CoordinateBoardFactory(int row, int col, Coordinate... coordinates) throws BoardFactoryException {
         super(row, col);
-        checkCoordinatesFormat(coordinates);
+        checkCoordinates(coordinates);
         this.coordinates = coordinates;
     }
 
     public void setCoordinates(Coordinate[] coordinates) throws BoardFactoryException {
-        checkCoordinatesFormat(coordinates);
+//        checkCoordinates(coordinates);
         this.coordinates = coordinates;
     }
-    private void checkCoordinatesFormat(Coordinate[] coordinates) throws BoardFactoryException{
+    private void checkCoordinates(Coordinate[] coordinates) throws BoardFactoryException{
         for (Coordinate coordinate: coordinates) {
             if (coordinate.getCol() > this.cols || coordinate.getRow() > this.rows ||
             coordinate.getCol() < 0 || coordinate.getRow() < 0){
-                throw new BoardFactoryException("Неправильный формат координат. Координаты: Row "
-                        + coordinate.getRow() +", Col " + coordinate.getCol() + " выходят за границы поля: Rows"
-                        + this.rows + ", Cols " + this.cols);
+                throw new BoardFactoryException(String.format("Координата [%d,%d] выходит за границы поля размера %dx%d"
+                        ,coordinate.getRow(),coordinate.getCol(),this.rows,this.cols));
             }
         }
     }

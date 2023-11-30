@@ -2,7 +2,7 @@ package ru.project.game.stop;
 
 import ru.project.board.Board;
 
-public class CellSurvivalEndConditionChecker implements GameOverConditionChecker {
+public class AllDeadCondition implements GameOverCondition {
     @Override
     public boolean isGameOver(Board board) {
         return !hasLiveCells(board.getBoard());

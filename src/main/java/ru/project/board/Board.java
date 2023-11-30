@@ -5,7 +5,6 @@ import lombok.Getter;
 import ru.project.board.validation.BoardValidationException;
 import ru.project.board.validation.BoardValidator;
 
-
 @Getter
 @EqualsAndHashCode
 public class Board {

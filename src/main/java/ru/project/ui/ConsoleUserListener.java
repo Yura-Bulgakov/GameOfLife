@@ -9,9 +9,11 @@ import java.util.Scanner;
 public class ConsoleUserListener implements UserListener{
 
     private final Scanner scanner;
+    private final StringBuilder stringBuilder;
 
     public ConsoleUserListener() {
         this.scanner = new Scanner(System.in);
+        this.stringBuilder = new StringBuilder();
     }
 
     @Override
@@ -31,19 +33,24 @@ public class ConsoleUserListener implements UserListener{
 
     @Override
     public void showBoard(Board board) {
+        if (stringBuilder.length() > 0){
+            stringBuilder.delete(0,stringBuilder.length()-1);
+        }
+        //Unicode symbol black square
         String liveCell = "*";
         String deadCell = "-";
         boolean[][] gameBoard = board.getBoard();
         for (boolean[] row: gameBoard) {
             for (boolean col: row) {
                 if (col){
-                    System.out.print(liveCell);
+                    stringBuilder.append(liveCell);
                 } else {
-                    System.out.print(deadCell);
+                    stringBuilder.append(deadCell);
                 }
             }
-            System.out.println();
+            stringBuilder.append("\n");
         }
+        showMessage(stringBuilder.toString());
     }
 
     @Override
@@ -63,5 +70,6 @@ public class ConsoleUserListener implements UserListener{
     @VisibleForTesting
     ConsoleUserListener(String str) {
         this.scanner = new Scanner(str);
+        this.stringBuilder = new StringBuilder();
     }
 }
